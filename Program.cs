@@ -39,6 +39,7 @@ builder.Services.AddCors(options =>
                             policy.AllowCredentials();
                             // WithOrigins() needed when AllowCredentials() is needed.
                             policy.WithOrigins(
+                                "https://localhost:44488",     // Allow connecting from localhost.
                                 "http://192.168.1.33:3000", // IP of the server and port that wants to connect to this server.
                                                             // The application on the server (JavaScript) trying to connect must use this protocol, IP and port: 
                                                             // https://ip-of-this-server:7116/chatHub
