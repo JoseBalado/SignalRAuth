@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using SignalRAuth.Data;
 using SignalRAuth.Models;
+using SignalRChat.Hubs;
+using Notification;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,32 @@ builder.Services.AddAuthentication()
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddCors(options =>
+{
+        options.AddPolicy("MyAllowSpecificOrigins",
+                        policy  =>
+                        {
+                            policy.AllowAnyHeader();
+                            policy.AllowAnyMethod();
+                            policy.AllowAnyOrigin();
+                            // AllowCredentials() needed to make CORS works.
+                            policy.AllowCredentials();
+                            // WithOrigins() needed when AllowCredentials() is needed.
+                            policy.WithOrigins(
+                                "http://192.168.1.33:3000", // IP of the server and port that wants to connect to this server.
+                                                            // The application on the server (JavaScript) trying to connect must use this protocol, IP and port: 
+                                                            // https://ip-of-this-server:7116/chatHub
+
+                                "http://localhost:3000"     // Allow connecting from localhost.
+
+                            );
+                        });
+});
+
+builder.Services.AddSignalR();
+
+builder.Services.AddSingleton<NotificationService>();
 
 var app = builder.Build();
 
@@ -52,5 +80,9 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.MapFallbackToFile("index.html");;
+
+app.UseCors("MyAllowSpecificOrigins");
+
+app.MapHub<ChatHub>("/chatHub");
 
 app.Run();
