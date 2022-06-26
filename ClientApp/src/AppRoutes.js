@@ -2,7 +2,7 @@ import ApiAuthorzationRoutes from './components/api-authorization/ApiAuthorizati
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
-import Chat from './components/Chat/Chat';
+import AuthChatHub from './components/Chat/AuthChatHub';
 
 const AppRoutes = [
   {
@@ -19,9 +19,9 @@ const AppRoutes = [
     element: <FetchData />
   },
   {
-    path: '/signalr',
+    path: '/auth-chat-hub',
     requireAuth: true,
-    element: <Chat />
+    element: <AuthChatHub />
   },
   ...ApiAuthorzationRoutes
 ];
