@@ -37,6 +37,9 @@ export class NavMenu extends Component {
                 <NavLink tag={Link} className="text-dark" to="/auth-chat-hub">AuthChatHub</NavLink>
               </NavItem>
               <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/clock">Clock</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
               </NavItem>
               <NavItem>

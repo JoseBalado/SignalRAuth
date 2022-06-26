@@ -53,6 +53,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddSignalR();
 
 builder.Services.AddSingleton<NotificationService>();
+builder.Services.AddSingleton<NotificationService2>();
 
 var app = builder.Build();
 

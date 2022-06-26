@@ -7,8 +7,8 @@ namespace SignalRChat.Hubs
     [Authorize]
     public class ChatHub : Hub
     {
-        private readonly NotificationService _stockTicker;
-        public ChatHub(NotificationService stockTicker)
+        private readonly NotificationService2 _stockTicker;
+        public ChatHub(NotificationService2 stockTicker)
         {
             _stockTicker = stockTicker;
         }

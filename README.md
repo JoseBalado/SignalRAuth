@@ -56,4 +56,10 @@
 
 
 ### Clean the cookies.
-When the server is stopped the cookies from the browser need to be deleted. Then stop and start the server and login again.
+When the server is stopped the cookies from the browser need to be deleted.
+Open the browser from the link shown in the console by the server.
+Logout.
+Register a new user.
+Stop and start the server.
+Open again the browser from the link shown in the console by the server.
+Login with the new created user.
