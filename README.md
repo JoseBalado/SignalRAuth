@@ -56,4 +56,4 @@
 
 
 ### Clean the cookies.
-When the server is stopped the cookies from the browser need to be deleted. Delete the cookies and restore the server again.
+When the server is stopped the cookies from the browser need to be deleted. Then stop and start the server and login again.
