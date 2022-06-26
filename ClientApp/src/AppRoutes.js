@@ -17,7 +17,7 @@ const AppRoutes = [
   },
   {
     path: '/clock',
-    requireAuth: true,
+    // requireAuth: true,
     element: <Chat />
   },
   {

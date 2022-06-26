@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace SignalRChat.Hubs
 {
-    [Authorize]
     public class ChatHub : Hub
     {
         private readonly NotificationService2 _stockTicker;
