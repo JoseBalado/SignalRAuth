@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.SignalR;
 using Notification;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SignalRChat.Hubs
 {
+    [Authorize]
     public class ChatHub : Hub
     {
         private readonly NotificationService _stockTicker;

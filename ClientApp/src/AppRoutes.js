@@ -20,7 +20,7 @@ const AppRoutes = [
   },
   {
     path: '/signalr',
-    // requireAuth: true,
+    requireAuth: true,
     element: <Chat />
   },
   ...ApiAuthorzationRoutes

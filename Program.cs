@@ -67,6 +67,8 @@ else
     app.UseHsts();
 }
 
+app.UseCors("MyAllowSpecificOrigins");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
@@ -81,8 +83,6 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.MapFallbackToFile("index.html");;
-
-app.UseCors("MyAllowSpecificOrigins");
 
 app.MapHub<ChatHub>("/chatHub");
 
