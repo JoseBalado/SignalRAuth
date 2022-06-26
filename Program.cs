@@ -85,5 +85,6 @@ app.MapRazorPages();
 app.MapFallbackToFile("index.html");;
 
 app.MapHub<ChatHub>("/chatHub");
+app.MapHub<AuthChatHub>("/AuthChatHub");
 
 app.Run();

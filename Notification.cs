@@ -5,13 +5,13 @@ namespace Notification
 {
     public class NotificationService
     {
-        private readonly IHubContext<ChatHub> _myHubContext;
+        private readonly IHubContext<AuthChatHub> _myHubContext;
         private Timer _timer;
         private readonly TimeSpan _updateInterval = TimeSpan.FromMilliseconds(1000);
 
         private Queue<string> LastHundredValues = new Queue<string>();
 
-        public NotificationService(IHubContext<ChatHub> myHubContext)
+        public NotificationService(IHubContext<AuthChatHub> myHubContext)
         {
             _myHubContext = myHubContext;
             _timer = new Timer(UpdateCPUUsage, null, _updateInterval, _updateInterval);
