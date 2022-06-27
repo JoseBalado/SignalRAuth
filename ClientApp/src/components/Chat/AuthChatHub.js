@@ -17,10 +17,10 @@ const AuthChatHub = () => {
             .then(token => {
 
                 const newConnection = new HubConnectionBuilder()
-                .withUrl("https://192.168.1.33:7268/AuthChatHub", { withCredentials: true, accessTokenFactory: () => token})
-                .withAutomaticReconnect()
-                .build();
-                return newConnection;
+                    .withUrl("https://192.168.1.33:7268/AuthChatHub", { accessTokenFactory: () => token})
+                    .withAutomaticReconnect()
+                    .build();
+                    return newConnection;
             })
             .then(newConnection => {
                 newConnection.start()

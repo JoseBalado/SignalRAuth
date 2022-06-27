@@ -48,7 +48,7 @@ namespace Notification
                 _myHubContext.Clients.All.SendAsync("ReceiveMessage", "server", $"{cpuUsagePercentage:N2}");
                 _myHubContext.Clients.All.SendAsync("SendQueue", "server", LastHundredValues);
 
-                Console.WriteLine("CPU usage: " + $"{cpuUsagePercentage:N2}");
+                // Console.WriteLine("CPU usage: " + $"{cpuUsagePercentage:N2}");
             }
             catch (Exception e)
             {
@@ -116,7 +116,7 @@ namespace Notification
                 _myHubContext.Clients.All.SendAsync("ReceiveMessage", "server", $"{cpuUsagePercentage:N2}");
                 _myHubContext.Clients.All.SendAsync("SendQueue", "server", LastHundredValues);
 
-                Console.WriteLine("CPU usage: " + $"{cpuUsagePercentage:N2}");
+                // Console.WriteLine("CPU usage: " + $"{cpuUsagePercentage:N2}");
             }
             catch (Exception e)
             {
