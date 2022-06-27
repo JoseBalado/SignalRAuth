@@ -1,3 +1,20 @@
+## Template used for creating the SPA application with React.js
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-api-authorization?view=aspnetcore-6.0
+
+    dotnet new react -o <output_directory_name> -au Individual
+
+## Run the CRA server independently
+https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/react?view=aspnetcore-6.0&tabs=visual-studio
+
+The project is configured to start its own instance of the CRA development server in the background when the ASP.NET Core app starts in development mode. This is convenient because it means you don't have to run a separate server manually.
+
+There's a drawback to this default setup. Each time you modify your C# code and your ASP.NET Core app needs to restart, the CRA server restarts. A few seconds are required to start back up. If you're making frequent C# code edits and don't want to wait for the CRA server to restart, run the CRA server externally, independently of the ASP.NET Core process.
+
+To run the CRA server externally, switch to the ClientApp subdirectory in a command prompt and launch the CRA development server:
+
+    cd ClientApp
+    npm start
+
 ## Installing SignalR on React App
     cd ClientApp
     npm install @microsoft/signalr
