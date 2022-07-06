@@ -13,16 +13,11 @@ const Chat = () => {
     latestChat.current = chat;
 
     useEffect(() => {
-        authService.getAccessToken()
-            .then(token => {
-
                 const newConnection = new HubConnectionBuilder()
                     .withUrl("https://192.168.1.33:7268/chatHub")
                     .withAutomaticReconnect()
                     .build();
-                    return newConnection;
-            })
-            .then(newConnection => {
+
                 newConnection.start()
                     .then(result => {
                         console.log('Connected!');
@@ -43,8 +38,6 @@ const Chat = () => {
                         });
                     })
                     .catch(e => console.log('Connection failed: ', e));
-
-            })
     }, []);
 
     return (

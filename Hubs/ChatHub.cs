@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.SignalR;
 using Notification;
-using Microsoft.AspNetCore.Authorization;
 
 namespace SignalRChat.Hubs
 {
