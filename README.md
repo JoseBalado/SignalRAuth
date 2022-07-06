@@ -71,6 +71,19 @@ To run the CRA server externally, switch to the ClientApp subdirectory in a comm
         dotnet dev-certs https --clean
         dotnet dev-certs https --trust
 
+### Installing a root CA certificate in the trust store
+
+Installing a certificate in PEM form
+
+    $ sudo apt-get install -y ca-certificates
+    $ dotnet dev-certs https --clean
+    $ dotnet dev-certs https --trust
+    $ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/https.crt --format PEM
+    $ sudo update-ca-certificates
+
+Note: It is important to have the .crt extension on the file, otherwise it will not be processed.
+
+Stop the server, start it again, go to an https page and accept go to unsafe.
 
 ### Clean the cookies.
 When the server is stopped the cookies from the browser need to be deleted.
