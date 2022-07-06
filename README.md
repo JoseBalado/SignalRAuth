@@ -78,11 +78,11 @@ Installing a certificate in PEM form
     $ sudo apt-get install -y ca-certificates
     $ dotnet dev-certs https --clean
     $ dotnet dev-certs https --trust
-    $ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/https.crt --format PEM
+    $ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/aspnet/https.crt --format PEM
+    //$ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/https.crt --format PEM
     $ sudo update-ca-certificates
     $ sudo apt-get install libnss3-tools
-    $ dotnet dev-certs https
-    $ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/aspnet/https.crt --format PEM
+    // $ dotnet dev-certs https
     $ certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n localhost -i /usr/local/share/ca-certificates/aspnet/https.crt
     $ certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n localhost -i /usr/local/share/ca-certificates/aspnet/https.crt
 
