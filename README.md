@@ -80,6 +80,12 @@ Installing a certificate in PEM form
     $ dotnet dev-certs https --trust
     $ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/https.crt --format PEM
     $ sudo update-ca-certificates
+    $ sudo apt-get install libnss3-tools
+    $ dotnet dev-certs https
+    $ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/aspnet/https.crt --format PEM
+    $ certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n localhost -i /usr/local/share/ca-certificates/aspnet/https.crt
+    $ certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n localhost -i /usr/local/share/ca-certificates/aspnet/https.crt
+
 
 Note: It is important to have the .crt extension on the file, otherwise it will not be processed.
 
