@@ -75,16 +75,15 @@ To run the CRA server externally, switch to the ClientApp subdirectory in a comm
 
 Installing a certificate in PEM form
 
-    $ sudo apt-get install -y ca-certificates
-    $ dotnet dev-certs https --clean
-    $ dotnet dev-certs https --trust
-    $ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/aspnet/https.crt --format PEM
-    //$ sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/https.crt --format PEM
-    $ sudo update-ca-certificates
-    $ sudo apt-get install libnss3-tools
-    // $ dotnet dev-certs https
-    $ certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n localhost -i /usr/local/share/ca-certificates/aspnet/https.crt
-    $ certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n localhost -i /usr/local/share/ca-certificates/aspnet/https.crt
+    sudo apt-get install -y ca-certificates
+    dotnet dev-certs https --clean
+    dotnet dev-certs https --trust // this updates certificates in folder ~/.aspnet/https
+    sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/https.crt --format PEM
+    // Do not store the certificate in a subfolder of ./ca-certificates or update-ca-certificates will not work
+    sudo update-ca-certificates
+    // If the browser does not recognize the certificate, deleting this file /etc/ssl/certs/ca-certificates.crt
+    // and creating the certificates again can help.
+    // Some certificates are stored here too ~/.pki/nssdb but it is used by certutil utility.
 
 
 Note: It is important to have the .crt extension on the file, otherwise it will not be processed.
