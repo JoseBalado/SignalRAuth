@@ -23,5 +23,14 @@ module.exports = function(app) {
     }
   });
 
+  app.use(
+    createProxyMiddleware(["/AuthChatHub","/chatHub"], {
+      target: "https://192.168.1.33:7268/",
+      secure: false, // Needed to avoid DEPTH_ZERO_SELF_SIGNED_CERT error.
+      logger: console,
+      ws: true
+    })
+  );
+
   app.use(appProxy);
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';
-import authService from './../api-authorization/AuthorizeService'
 
 import ChatWindow from './ChatWindow/ChatWindow';
 import Chart from './Chart';
@@ -14,7 +13,7 @@ const Chat = () => {
 
     useEffect(() => {
                 const newConnection = new HubConnectionBuilder()
-                    .withUrl("https://192.168.1.33:7268/chatHub")
+                    .withUrl("/chatHub")
                     .withAutomaticReconnect()
                     .build();
 
