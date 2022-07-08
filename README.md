@@ -89,6 +89,9 @@ https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetc
     // and creating the certificates again can help.
     // Some certificates are stored here too ~/.pki/nssdb but it is used by certutil utility.
 
+    // To clean the certificate in the browser and accept the new one put this url directly in the 
+    // browser navigation bar: "https://192.168.1.33:7268/".
+
 
 Note: It is important to have the .crt extension on the file, otherwise it will not be processed.
 
