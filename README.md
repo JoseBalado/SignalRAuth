@@ -97,6 +97,10 @@ https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetc
     SSL_CRT_FILE=/home/aris/.aspnet/https/signalrauth.pem
     SSL_KEY_FILE=/home/aris/.aspnet/https/signalrauth.key
 
+    // Check this file also SignalRAuth/ClientApp/.env.development:
+    PORT=44488
+    HTTPS=true
+
 
 Note: It is important to have the .crt extension on the file, otherwise it will not be processed.
 
