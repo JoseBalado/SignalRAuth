@@ -92,6 +92,11 @@ https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetc
     // To clean the certificate in the browser and accept the new one put this url directly in the 
     // browser navigation bar: "https://192.168.1.33:7268/".
 
+    // Check this file also SignalRAuth/ClientApp/.env.development.local:
+
+    SSL_CRT_FILE=/home/aris/.aspnet/https/signalrauth.pem
+    SSL_KEY_FILE=/home/aris/.aspnet/https/signalrauth.key
+
 
 Note: It is important to have the .crt extension on the file, otherwise it will not be processed.
 
