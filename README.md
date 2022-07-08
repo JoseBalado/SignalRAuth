@@ -75,6 +75,8 @@ To run the CRA server externally, switch to the ClientApp subdirectory in a comm
 
 Installing a certificate in PEM form
 
+https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-6.0&tabs=visual-studio#trust-https-certificate-on-linux
+
     sudo apt-get install -y ca-certificates
     dotnet dev-certs https --clean
     dotnet dev-certs https --trust // this updates certificates in folder ~/.aspnet/https
