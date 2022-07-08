@@ -80,6 +80,8 @@ https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetc
     sudo apt-get install -y ca-certificates
     dotnet dev-certs https --clean
     dotnet dev-certs https --trust // this updates certificates in folder ~/.aspnet/https
+    // Copy the certificate in PEM format to "ca-certificates" folder so
+    // update-ca-certificates can update it.
     sudo -E dotnet dev-certs https -ep /usr/local/share/ca-certificates/https.crt --format PEM
     // Do not store the certificate in a subfolder of ./ca-certificates or update-ca-certificates will not work
     sudo update-ca-certificates
