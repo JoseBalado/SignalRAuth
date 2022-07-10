@@ -77,7 +77,7 @@ else
     app.UseHsts();
 }
 
-app.UseCors("MyAllowSpecificOrigins");
+app.UseCors("MyAllowSpecificOrigins"); // Must be as close a possible to "var app = builder.Build();"
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

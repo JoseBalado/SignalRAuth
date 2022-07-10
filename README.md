@@ -114,3 +114,34 @@ Register a new user.
 Stop and start the server.
 Open again the browser from the link shown in the console by the server.
 Login with the new created user.
+
+
+## Cors configuration
+
+    builder.Services.AddCors(options =>
+    {
+            options.AddPolicy("MyAllowSpecificOrigins",
+                            policy  =>
+                            {
+                                policy.AllowAnyHeader();
+                                policy.AllowAnyMethod();
+                                policy.AllowAnyOrigin();
+                                // AllowCredentials() needed to make CORS works.
+                                policy.AllowCredentials();
+                                // WithOrigins() needed when AllowCredentials() is needed.
+                                policy.WithOrigins(
+                                    "https://localhost:44488",     // Allow connecting from localhost.
+                                    "http://192.168.1.33:3000", // IP of the server and port that wants to connect to this server.
+                                                                // The application on the server (JavaScript) trying to connect must use this protocol, IP and port:
+                                                                // https://ip-of-this-server:7116/chatHub
+
+                                    "http://localhost:3000"     // Allow connecting from localhost.
+
+                                );
+                            });
+    });
+
+    // ...
+
+    app.UseCors("MyAllowSpecificOrigins"); // Must be as close a possible to "var app = builder.Build();"
+
