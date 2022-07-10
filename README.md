@@ -106,6 +106,11 @@ Note: It is important to have the .crt extension on the file, otherwise it will 
 
 Stop the server, start it again, go to an https page and accept go to unsafe.
 
+### Sefl signed certificate only works for localhost.
+If there is a  need to connect from another IP different from localhost, that IP must be in the url.
+But then the certificate would be rejected as it was signed for a different ulr, that is, localhost, and not
+for the IP of the server.
+
 ### Clean the cookies.
 When the server is stopped the cookies from the browser need to be deleted.
 Open the browser from the link shown in the console by the server.
@@ -181,6 +186,3 @@ https://docs.microsoft.com/en-us/aspnet/core/signalr/authn-and-authz?view=aspnet
 ### Identity Server JWT authentication
 ### Authorize users to access hubs and hub methods
 ### Use authorization handlers to customize hub method authorization
-
-
-
