@@ -150,23 +150,37 @@ Login with the new created user.
 SignalRAuth/ClientApp/src/setupProxy.js
 
     module.exports = function(app) {
-    const appProxy = createProxyMiddleware(context, {
-        target: target,
-        secure: false,
-        headers: {
-        Connection: 'Keep-Alive'
-        }
-    });
+        const appProxy = createProxyMiddleware(context, {
+            target: target,
+            secure: false,
+            headers: {
+            Connection: 'Keep-Alive'
+            }
+        });
 
-    // Added to proxy WebSockets.
-    app.use(
-        createProxyMiddleware(["/AuthChatHub","/chatHub"], {
-        target: "https://192.168.1.33:7268/",
-        secure: false, // Needed to avoid DEPTH_ZERO_SELF_SIGNED_CERT error.
-        logger: console,
-        ws: true
-        })
-    );
+        // Added to proxy WebSockets.
+        app.use(
+            createProxyMiddleware(["/AuthChatHub","/chatHub"], {
+                target: "https://192.168.1.33:7268/",
+                secure: false, // Needed to avoid DEPTH_ZERO_SELF_SIGNED_CERT error.
+                logger: console,
+                ws: true
+            })
+        );
 
-    app.use(appProxy);
+        app.use(appProxy);
     };
+
+
+## How to add authentication.
+
+https://docs.microsoft.com/en-us/aspnet/core/signalr/authn-and-authz?view=aspnetcore-6.0
+
+### Authenticate users connecting to a SignalR hub
+### Bearer token authentication
+### Identity Server JWT authentication
+### Authorize users to access hubs and hub methods
+### Use authorization handlers to customize hub method authorization
+
+
+
