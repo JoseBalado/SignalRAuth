@@ -145,3 +145,28 @@ Login with the new created user.
 
     app.UseCors("MyAllowSpecificOrigins"); // Must be as close a possible to "var app = builder.Build();"
 
+
+## Configuring proxy for Create-react-app
+SignalRAuth/ClientApp/src/setupProxy.js
+
+    module.exports = function(app) {
+    const appProxy = createProxyMiddleware(context, {
+        target: target,
+        secure: false,
+        headers: {
+        Connection: 'Keep-Alive'
+        }
+    });
+
+    // Added to proxy WebSockets.
+    app.use(
+        createProxyMiddleware(["/AuthChatHub","/chatHub"], {
+        target: "https://192.168.1.33:7268/",
+        secure: false, // Needed to avoid DEPTH_ZERO_SELF_SIGNED_CERT error.
+        logger: console,
+        ws: true
+        })
+    );
+
+    app.use(appProxy);
+    };

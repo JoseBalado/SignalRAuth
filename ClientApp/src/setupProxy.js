@@ -23,6 +23,7 @@ module.exports = function(app) {
     }
   });
 
+  // Added to proxy WebSockets.
   app.use(
     createProxyMiddleware(["/AuthChatHub","/chatHub"], {
       target: "https://192.168.1.33:7268/",
