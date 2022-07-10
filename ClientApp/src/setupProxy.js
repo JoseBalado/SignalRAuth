@@ -26,7 +26,7 @@ module.exports = function(app) {
   // Added to proxy WebSockets.
   app.use(
     createProxyMiddleware(["/AuthChatHub","/chatHub"], {
-      target: "https://192.168.1.33:7268/",
+      target: "https://localhost:7268/",
       secure: false, // Needed to avoid DEPTH_ZERO_SELF_SIGNED_CERT error.
       logger: console,
       ws: true
