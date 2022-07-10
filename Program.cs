@@ -6,6 +6,11 @@ using SignalRAuth.Data;
 using SignalRAuth.Models;
 using SignalRChat.Hubs;
 using Notification;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +28,10 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
+
+builder.Services.TryAddEnumerable(
+    ServiceDescriptor.Singleton<IPostConfigureOptions<JwtBearerOptions>,
+        ConfigureJwtBearerOptions>());
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
